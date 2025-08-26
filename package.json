@@ -1,17 +1,21 @@
 {
   "name": "csv-merge",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "merge": "node merge.js",
+    "merge:excel": "node merge.js --mode=excel",
+    "merge:sheets": "node merge.js --mode=sheets",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["csv", "merge", "excel", "google-sheets", "automation"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Merge CSV files into Excel or Google Sheets with deduplication",
   "dependencies": {
     "exceljs": "^4.4.0",
-    "papaparse": "^5.5.3"
+    "papaparse": "^5.5.3",
+    "googleapis": "^128.0.0",
+    "yargs": "^17.7.2"
   }
 }

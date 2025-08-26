@@ -4,6 +4,9 @@ node_modules/
 # Ignore data folder (where raw CSVs are stored)
 data/
 
+# Ignore credentials
+credentials.*
+
 # Ignore system files
 .DS_Store
 Thumbs.db
