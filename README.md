@@ -1,40 +1,100 @@
-# 📂 CSV Merge Tool
+# 📂 CSV Merge Tool (Excel Export)
 
-A simple Node.js utility to **merge multiple CSV files** into one, while **removing duplicates** based on the `Title` and `Phone` columns.
+A Node.js utility to **merge multiple CSV files** into a single Excel file (`.xlsx`).  
+It automatically adds a **LeadType column** based on the folder name and ensures all columns have a **fixed width of 3.5 cm** for clean reporting.
 
 ---
 
 ## 🚀 Features
-- Merge any number of CSV files from a folder (`./data`).
-- Deduplicate rows using only the `Title + Phone` columns.
-- Keeps all other columns from the first occurrence.
-- Outputs a clean merged CSV file: `merged_cleaned.csv`.
+- Merge CSVs from multiple subfolders inside the `data/` directory.  
+- Deduplicate rows using only the `Title + Phone` columns.  
+- Add a new column **LeadType** (taken from the subfolder name).  
+- Export a single file **`Leads-Merged.xlsx`** to your Desktop.  
+- Fixed column width (≈ 13 characters = 3.5 cm).  
+- Automatically keeps preferred column order:  
+```
+
+LeadType, Title, Phone, Address, Website, ...
+
+````
 
 ---
 
 ## 📦 Setup
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/csv-merge-tool.git
-   cd csv-merge-tool
-2. Install dependencies:
+```bash
+# Clone this repository
+git clone https://github.com/<your-username>/csv-merge-tool.git
+cd csv-merge-tool
+
+# Install dependencies
 npm install
-3. Create a folder called data inside the project and place all your CSV files there:
+````
+
+* Create a folder named `data/` in the project root.
+* Inside `data/`, create subfolders for each lead type (e.g., `Architects`, `Builders`, etc.).
+* Place your CSV files inside these subfolders. Example:
+
+```
 csv-merge-tool/
 ├── data/
-│   ├── file1.csv
-│   ├── file2.csv
-│   └── ...
+│   ├── Architects/
+│   │   ├── file1.csv
+│   │   ├── file2.csv
+│   ├── Builders/
+│   │   ├── file3.csv
+│   │   ├── file4.csv
 ├── merge.js
-└── package.json
+├── package.json
+└── .gitignore
+```
 
+---
 
-**Usage**
+## ▶️ Usage
 
 Run the script:
-node merge.js
 
-**After execution:**
-A new file merged_cleaned.csv will be created in the project root.
-The file will contain all merged rows, with duplicates removed (based on Title + Phone).
+```bash
+node merge.js
+```
+
+Output:
+
+* File `Leads-Merged.xlsx` will be created on your **Desktop**.
+* It will contain all leads combined from all subfolders.
+* Each row will include a **LeadType** column based on its subfolder.
+
+---
+
+## ⚖️ Example
+
+**Input folder structure:**
+
+```
+data/
+├── Architects/
+│   ├── arch1.csv
+│   ├── arch2.csv
+├── Builders/
+│   ├── build1.csv
+```
+
+**Output (Leads-Merged.xlsx):**
+
+| LeadType   | Title    | Phone | Address  | Website | ... |
+| ---------- | -------- | ----- | -------- | ------- | --- |
+| Architects | ABC Corp | 12345 | New York | abc.com | ... |
+| Builders   | XYZ Ltd  | 67890 | London   | xyz.com | ... |
+
+---
+
+## 🛠️ .gitignore
+
+The project includes a `.gitignore` file that excludes:
+
+* `node_modules/`
+* `data/` (raw CSVs)
+* Temporary/system files
+
+---
