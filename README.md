@@ -221,7 +221,7 @@ sheets: {
 ### Google Sheets Issues
 ```bash
 # Test Google Sheets connectivity
-node -e "console.log('Testing...'); require('./merge.js')" --mode=sheets
+node test-google-sheets.js
 ```
 
 ### Common Problems

@@ -1,7 +1,7 @@
 // Configuration file for CSV Merge Tool
 module.exports = {
   // Default mode: 'excel' or 'sheets'
-  defaultMode: 'excel',
+  defaultMode: 'sheets',
 
   // Excel settings
   excel: {
