@@ -183,6 +183,12 @@ class CSVMerger {
   }
 
   processCSVFiles() {
+    // Check for CSVs directly in root data folder
+      const rootFiles = fs.readdirSync(config.csv.dataFolder).filter(file => file.endsWith(".csv"));
+      if (rootFiles.length > 0) {
+        console.warn(`⚠️ Warning: Found ${rootFiles.length} CSV file(s) directly inside "${config.csv.dataFolder}". Please move these files into subfolders representing LeadType.`);
+      }
+
     const subfolders = fs
       .readdirSync(config.csv.dataFolder)
       .filter((f) => fs.statSync(path.join(config.csv.dataFolder, f)).isDirectory());
