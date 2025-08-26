@@ -1,0 +1,15 @@
+# Ignore node_modules (dependencies)
+node_modules/
+
+# Ignore data folder (where raw CSVs are stored)
+data/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
