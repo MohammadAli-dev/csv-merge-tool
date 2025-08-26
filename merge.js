@@ -70,7 +70,7 @@ if (allRows.length > 0) {
     worksheet.addRow(finalOrder.map(col => row[col] || ""));
   });
 
-  // Set fixed column widths (~3.5 cm ≈ 13 characters in Excel)
+  // Set fixed column widths (~3.5 cm â‰ˆ 13 characters in Excel)
   finalOrder.forEach((_, i) => {
     worksheet.getColumn(i + 1).width = 13;
   });
